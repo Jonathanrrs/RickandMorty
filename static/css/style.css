@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    background: #00a5be;
+    font-family: system-ui;
+}
+
+.logo {
+    /* Se centra el logo  */
+    margin: 0 auto 2em;
+    display: block;
+ 
+}
+
+.grid {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "asset-top logo logo social" "name character-name avatar avatar" "about character-description avatar avatar" "asset-bottom learn-more arrow other-line";
+}
+
+
+.asset.top {
+    grid-area: asset-top;
+    writing-mode: vertical-rl;
+    margin-inline-start:4em;
+}
+.navigation {
+    /* transform-origin: left bottom; */
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
+    position: absolute;
+    left: 2em;
+    height: calc(100vh - 8em);
+    bottom: 0;
+    text-align: center;
+    border: 1px solid red;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    padding-inline-start: 4em;
+    display: none;
+}
+
+.navigation .text {
+    display: inline-flex;
+    margin-inline-start: 35px;
+    
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    display: inline-flex;
+    margin-inline-start: 5px;
+}
+
+.links {
+    
+}
+
+.line {
+    width: 2px;
+    height: 150px;
+    background: black;
+    display: inline-flex;
+    margin-inline-start: 15px;
+}
+
+.wrapper {
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 2em;
+}
+
+.character {
+    text-align: center;
+}
+
+.character-image{
+    width: 100%;
+    border-radius: 50%;
+}
+.character-labels {
+    max-width: 300px;
+}
+.character-label {
+    background: #685128;
+    padding: 1em;
+    color: white;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 25px;
+    font-weight: 400;
+    /* display: inline-flex; */
+}
+.character-name {
+    /* Nombre del personaje */
+    font-size: 30px;
+}
+
+@media screen and (min-width:1024px) {
+    .character-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "name image" "labels image";
+    }
+    .character-image {
+        grid-area: name;
+        width: 300px;
+        border-radius: 50%;
+    }
+    .character-name {
+        text-align: left;
+    }
+    .character-name h2 {
+        text-align: left;
+        font-size: 50px;
+        position: relative;
+        display: inline-flex;
+    }
+    .character-name h2:after {
+        /* Para la linea del nombre */
+        content: "";
+        width: 87px;
+        height: 6px;
+        background-color: #F7391C;
+        display: inline-flex;
+        position: absolute;
+        left: calc(100% + 5px);
+        top: 50%;
+    }
+    .character-labels {
+        grid-area: labels;
+        max-width: 300px;
+    }
+    .character-image {
+        grid-area: image;
+        /* width: 300px;
+        border-radius: 50%; */
+    }
+    
+
+}
