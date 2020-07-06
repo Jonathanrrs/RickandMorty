@@ -6,6 +6,7 @@ body {
 
 .logo {
     /* Se centra el logo  */
+    grid-area: logo;
     margin: 0 auto 2em;
     display: block;
  
@@ -13,20 +14,103 @@ body {
 
 .grid {
     display: grid;
-    height: 100vh;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-areas: "asset-top logo logo social" "name character-name avatar avatar" "about character-description avatar avatar" "asset-bottom learn-more arrow other-line";
+    height: calc(100vh - 8em);
+    padding: 4em;
+    grid-template-columns: 50px 1fr 1fr 200px;
+    grid-template-rows: 230px 100px 1fr 1fr 1fr;
+    grid-column-gap: 8em;
+    grid-template-areas: "asset-top logo logo social" "name character-name avatar avatar" "about character-description avatar avatar" "asset-bottom character-text avatar avatar" "asset-bottom learn-more arrow other-line";
 }
 
+.character-image-container {
+    grid-area: avatar;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    grid-area: arrow;
+    border: 1px solid red;
+    background-image: url('../images/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+.learn-more {
+    grid-area: learn-more;
+    border: 1px solid red;
+    display: flex;
+    align-items: flex-end;
+    font-size: 25px;
+    text-transform: uppercase;
+    background-image: url('../images/learn-more.svg');
+    background-repeat: no-repeat;
+    background-position: left 170px bottom 5px;
+}
 
 .asset.top {
     grid-area: asset-top;
-    writing-mode: vertical-rl;
-    margin-inline-start:4em;
+    border: 1px solid red;
+    
 }
+.asset {
+    writing-mode: vertical-rl;
+    display: flex;
+    align-items: center;
+    /* margin-inline-start: 4em; */
+}
+
+.asset.bottom {
+    grid-area: asset-bottom;
+    border: 1px solid green;
+    justify-content: flex-end;
+    /* margin-inline-start: 4em; */
+}
+
 .navigation {
-    /* transform-origin: left bottom; */
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation.name {
+    grid-area: name;
+    border: 1px solid purple;
+  
+}
+.navigation.about {
+    grid-area: about;
+    border: 1px solid purple;
+  
+}
+
+.navigation a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+.social {
+    grid-area: social;
+    border: 1px solid red;
+}
+
+.character-name-container {
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+   /*  padding-inline-start: 1em; */
+}
+
+.character-description-container {
+    grid-area: character-description;
+}
+/* .navigation {
+    transform-origin: left bottom;
     transform: rotate(180deg);
     writing-mode: vertical-rl;
     position: absolute;
@@ -40,7 +124,7 @@ body {
     justify-content: space-between;
     padding-inline-start: 4em;
     display: none;
-}
+} */
 
 .navigation .text {
     display: inline-flex;
@@ -80,7 +164,7 @@ body {
 }
 
 .character-image{
-    width: 100%;
+    max-width: 100%;
     border-radius: 50%;
 }
 .character-labels {
@@ -101,7 +185,7 @@ body {
     font-size: 30px;
 }
 
-@media screen and (min-width:1024px) {
+/* @media screen and (min-width:1024px) {
     .character-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -122,7 +206,7 @@ body {
         display: inline-flex;
     }
     .character-name h2:after {
-        /* Para la linea del nombre */
+        Para la linea del nombre
         content: "";
         width: 87px;
         height: 6px;
@@ -138,9 +222,14 @@ body {
     }
     .character-image {
         grid-area: image;
-        /* width: 300px;
-        border-radius: 50%; */
+        width: 300px;
+        border-radius: 50%;
     }
     
+} */
 
+@media screen and(max-width: 1440px) {
+    .grid {
+        column-gap: 2em;
+    }
 }
